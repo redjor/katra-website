@@ -34,3 +34,36 @@ body.menu-modal-open {
     overscroll-behavior: contain;
 }
 
+.scroll-down-helper {
+    @apply block bg-darker-aluminium rounded overflow-hidden relative;
+    width: 6px;
+    height: 32px;
+}
+
+.scroll-down-helper::after {
+    @apply absolute block bg-black dark:bg-white rounded text-center;
+    left: calc(50% - 2px);
+    content: '';
+    width: 4px;
+    height: 24px;
+    -webkit-animation: scrollDown 2.4s infinite;
+    animation: scrollDown 2.4s infinite;
+}
+
+@-webkit-keyframes scrollDown {
+    0% {
+        transform: translateY(-200%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-200%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}

@@ -1,15 +1,17 @@
 import {createClient} from "@/prismicio";
 import {Metadata} from "next";
+import HomepageIntro from "@/app/components/homepage/Intro";
 
 export default async function Home() {
     const client = createClient();
     const homepage = await client.getSingle('homepage', {lang: 'fr-fr'})
-    
+
     return (
-        <div className="block relative">
+        <div className="relative block">
+            <HomepageIntro bgImg={homepage.data.intro_background}/>
             <div className="appear-fade-opacity py-48">
                 <h1
-                    className="font-medium text-xl text-aluminium text-center max-w-3xl mx-auto"
+                    className="mx-auto max-w-3xl text-center text-xl font-medium text-aluminium"
                 >
                     Chez Katra, le design joint l’utile à l’agréable, l’usage à la
                     raison, questionnant la société à différents étages. Un outil de
@@ -17,20 +19,20 @@ export default async function Home() {
                     nombre.
                 </h1>
                 <div
-                    className="flex gap-3 w-full mt-12 items-center justify-center flex-wrap"
+                    className="mt-12 flex w-full flex-wrap items-center justify-center gap-3"
                 >
                     <span>Produit</span>
-                    <span className="font-light text-gold text-sm">•</span>
+                    <span className="text-sm font-light text-gold">•</span>
                     <span>Marque</span>
-                    <span className="font-light text-gold text-sm">•</span>
+                    <span className="text-sm font-light text-gold">•</span>
                     <span>Scénographie </span>
-                    <span className="font-light text-gold text-sm">•</span>
+                    <span className="text-sm font-light text-gold">•</span>
                     <span> Graphisme</span>
-                    <span className="font-light text-gold text-sm">•</span>
+                    <span className="text-sm font-light text-gold">•</span>
                     <span className="whitespace-nowrap">Street Art</span>
-                    <span className="font-light text-gold text-sm">•</span>
+                    <span className="text-sm font-light text-gold">•</span>
                     <span>Espace</span>
-                    <span className="font-light text-gold text-sm">•</span>
+                    <span className="text-sm font-light text-gold">•</span>
                     <span>Urbain</span>
                 </div>
             </div>

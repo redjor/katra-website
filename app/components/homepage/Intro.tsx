@@ -1,13 +1,13 @@
-import {PrismicImageProps} from "@prismicio/react";
 import Image from "next/image";
+import {ImageField} from "@prismicio/types";
 
 interface IntroProps {
-    bgImg: PrismicImageProps
+    bgImg: ImageField
 }
 
 export default function HomepageIntro({bgImg}: IntroProps) {
     const {url: bgUrl} = bgImg
-    
+
     return (
         <section id="intro"
                  className="relative z-10 flex h-screen w-full items-center justify-center overflow-hidden bg-black">
@@ -31,7 +31,7 @@ export default function HomepageIntro({bgImg}: IntroProps) {
                 </div>
             </div>
             <div className="absolute inset-0 z-0 h-screen opacity-30">
-                <Image src={bgUrl} alt="Menu" fill={true}/>
+                <Image src={bgUrl || ""} alt="Menu" fill={true}/>
             </div>
         </section>
     )

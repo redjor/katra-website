@@ -1,41 +1,59 @@
 import {createClient} from "@/prismicio";
 import {Metadata} from "next";
 import HomepageIntro from "@/app/components/homepage/Intro";
+import HomepageFeaturedProjects from "@/app/components/homepage/FeaturedProjects";
 
 export default async function Home() {
     const client = createClient();
-    const homepage = await client.getSingle('homepage', {lang: 'fr-fr'})
+    const homepage = await client.getSingle('homepage', {
+        lang: 'fr-fr', fetchLinks: [
+            'project.title',
+            'project.cover',
+            'project.logo',
+            'project.categories',
+            'project.client',
+            'series.uid',
+            'series.title',
+            'series.thumbnail',
+            'series.description',
+        ],
+    })
 
     return (
         <div className="relative block">
             <HomepageIntro bgImg={homepage.data.intro_background}/>
-            <div className="appear-fade-opacity py-48">
-                <h1
-                    className="mx-auto max-w-3xl text-center text-xl font-medium text-aluminium"
-                >
-                    Chez Katra, le design joint l’utile à l’agréable, l’usage à la
-                    raison, questionnant la société à différents étages. Un outil de
-                    transformation individuelle et collective à la portée du plus grand
-                    nombre.
-                </h1>
-                <div
-                    className="mt-12 flex w-full flex-wrap items-center justify-center gap-3"
-                >
-                    <span>Produit</span>
-                    <span className="text-sm font-light text-gold">•</span>
-                    <span>Marque</span>
-                    <span className="text-sm font-light text-gold">•</span>
-                    <span>Scénographie </span>
-                    <span className="text-sm font-light text-gold">•</span>
-                    <span> Graphisme</span>
-                    <span className="text-sm font-light text-gold">•</span>
-                    <span className="whitespace-nowrap">Street Art</span>
-                    <span className="text-sm font-light text-gold">•</span>
-                    <span>Espace</span>
-                    <span className="text-sm font-light text-gold">•</span>
-                    <span>Urbain</span>
+            <div className="w-full px-5 md:px-16">
+                <div className="row relative mx-auto">
+                    <div className="appear-fade-opacity py-48">
+                        <h1
+                            className="mx-auto max-w-3xl text-center text-xl font-medium text-aluminium"
+                        >
+                            Chez Katra, le design joint l’utile à l’agréable, l’usage à la
+                            raison, questionnant la société à différents étages. Un outil de
+                            transformation individuelle et collective à la portée du plus grand
+                            nombre.
+                        </h1>
+                        <div
+                            className="mt-12 flex w-full flex-wrap items-center justify-center gap-3"
+                        >
+                            <span>Produit</span>
+                            <span className="text-sm font-light text-gold">•</span>
+                            <span>Marque</span>
+                            <span className="text-sm font-light text-gold">•</span>
+                            <span>Scénographie </span>
+                            <span className="text-sm font-light text-gold">•</span>
+                            <span> Graphisme</span>
+                            <span className="text-sm font-light text-gold">•</span>
+                            <span className="whitespace-nowrap">Street Art</span>
+                            <span className="text-sm font-light text-gold">•</span>
+                            <span>Espace</span>
+                            <span className="text-sm font-light text-gold">•</span>
+                            <span>Urbain</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <HomepageFeaturedProjects projects={homepage.data.featured_projects}/>
         </div>
     );
 }

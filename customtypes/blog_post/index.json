@@ -1,0 +1,163 @@
+{
+  "id": "blog_post",
+  "label": "Article",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Titre"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Slug"
+        }
+      },
+      "category": {
+        "type": "Link",
+        "config": {
+          "select": "document",
+          "customtypes": ["blog_category"],
+          "label": "Categorie"
+        }
+      },
+      "date": {
+        "type": "Date",
+        "config": {
+          "label": "Date de publication"
+        }
+      },
+      "type": {
+        "type": "Select",
+        "config": {
+          "options": ["default", "video", "podcast"],
+          "label": "Type d'article"
+        }
+      },
+      "oembed_link": {
+        "type": "Embed",
+        "config": {
+          "label": "Video / Podcast Url",
+          "placeholder": "Si p"
+        }
+      },
+      "cover": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [
+            {
+              "name": "og_image",
+              "width": 1200,
+              "height": 630
+            }
+          ],
+          "label": "Couverture"
+        }
+      }
+    },
+    "Content": {
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {
+            "rich_text": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "image_grid": {
+              "type": "SharedSlice"
+            },
+            "embed_block": {
+              "type": "SharedSlice"
+            },
+            "image_carousel": {
+              "type": "SharedSlice"
+            },
+            "quote_block": {
+              "type": "SharedSlice"
+            },
+            "hero_slice": {
+              "type": "SharedSlice"
+            },
+            "project_link": {
+              "type": "SharedSlice"
+            },
+            "2_img1_text": {
+              "type": "SharedSlice"
+            },
+            "compo3_images": {
+              "type": "SharedSlice"
+            },
+            "title_block": {
+              "type": "SharedSlice"
+            },
+            "image_text_image": {
+              "type": "SharedSlice"
+            },
+            "text_block": {
+              "type": "SharedSlice"
+            },
+            "space_block": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "My title for Search Engine"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "The description that will appear in search engine"
+        }
+      },
+      "social_cards": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "social_card_image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Social Card Image"
+              }
+            },
+            "social_card_title": {
+              "type": "Text",
+              "config": {
+                "label": "Social Card TItle"
+              }
+            },
+            "social_card_description": {
+              "type": "Text",
+              "config": {
+                "label": "Social card description"
+              }
+            }
+          },
+          "label": "Social Cards - Facebook & Twitter"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

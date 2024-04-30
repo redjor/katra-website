@@ -1,0 +1,27 @@
+{
+  "id": "site",
+  "label": "Paramètres du site",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "menu_images": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Image"
+              }
+            }
+          },
+          "label": "Images du menu"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

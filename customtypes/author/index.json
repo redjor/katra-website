@@ -1,0 +1,68 @@
+{
+  "id": "author",
+  "label": "Auteur",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "fullname": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Full Name",
+          "placeholder": "Author's Full Name"
+        }
+      },
+      "bio": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+          "allowTargetBlank": true,
+          "label": "Author's bio",
+          "placeholder": "Enter a short description of the author"
+        }
+      },
+      "profile_picture": {
+        "type": "Image",
+        "config": {
+          "constraint": {
+            "width": null,
+            "height": null
+          },
+          "thumbnails": [
+            {
+              "name": "thumbnail",
+              "width": 75,
+              "height": 75
+            }
+          ],
+          "label": "Profile picture"
+        }
+      },
+      "social_media": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Name",
+                "placeholder": "Social media name"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "allowTargetBlank": true,
+                "label": "Link",
+                "placeholder": "Link to the social media page",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

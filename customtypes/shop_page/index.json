@@ -1,0 +1,29 @@
+{
+  "id": "shop_page",
+  "label": "Shop Page",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Slug"
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description"
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

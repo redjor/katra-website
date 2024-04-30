@@ -1,0 +1,64 @@
+{
+  "id": "feed",
+  "label": "Feed",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "cards": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "media": {
+              "type": "Link",
+              "config": {
+                "select": "media",
+                "label": "Media"
+              }
+            },
+            "description": {
+              "type": "Text",
+              "config": {
+                "label": "Description"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "allowTargetBlank": true,
+                "label": "Lien",
+                "select": null
+              }
+            }
+          },
+          "label": "cards"
+        }
+      }
+    },
+    "SEO": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "My title for Search Engine"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "The description that will appear in search engine"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Meta Image"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

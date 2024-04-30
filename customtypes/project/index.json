@@ -1,0 +1,235 @@
+{
+  "id": "project",
+  "label": "Projet",
+  "repeatable": true,
+  "json": {
+    "Informations": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Titre"
+        }
+      },
+      "short_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Titre Court"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Slug"
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description"
+        }
+      },
+      "client": {
+        "type": "Text",
+        "config": {
+          "label": "Client"
+        }
+      },
+      "date": {
+        "type": "Date",
+        "config": {
+          "label": "Date de publication"
+        }
+      },
+      "realisation_date": {
+        "type": "Date",
+        "config": {
+          "label": "Date de réalisation"
+        }
+      },
+      "text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Couleur globale du texte (paragraphe)"
+        }
+      },
+      "bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Couleur du fond"
+        }
+      },
+      "custom_font": {
+        "type": "Link",
+        "config": {
+          "select": "media",
+          "label": "Police de caractère",
+          "placeholder": "Chargez uniquement des woff2"
+        }
+      },
+      "next_project": {
+        "type": "Link",
+        "config": {
+          "label": "Projet suivant",
+          "select": null
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Logo"
+        }
+      },
+      "thumbnail": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Vignette"
+        }
+      },
+      "cover": {
+        "type": "Image",
+        "config": {
+          "constraint": {
+            "width": 1920,
+            "height": 1080
+          },
+          "thumbnails": [],
+          "label": "Couverture"
+        }
+      },
+      "video_cover": {
+        "type": "Embed",
+        "config": {
+          "label": "Vidéo de couverture",
+          "placeholder": "Ex: https://vimeo.com/673141541"
+        }
+      },
+      "categories": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "category": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["project_category"],
+                "label": "Categorie"
+              }
+            }
+          },
+          "label": "Catégories"
+        }
+      },
+      "photographes": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "photograph_name": {
+              "type": "Text",
+              "config": {
+                "label": "Nom du photographe"
+              }
+            }
+          },
+          "label": "Photographes"
+        }
+      },
+      "partners": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "name": {
+              "type": "StructuredText",
+              "config": {
+                "single": "paragraph",
+                "label": "Nom"
+              }
+            }
+          },
+          "label": "Partenaires"
+        }
+      }
+    },
+    "Content": {
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {
+            "rich_text": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "image_grid": {
+              "type": "SharedSlice"
+            },
+            "image_carousel": {
+              "type": "SharedSlice"
+            },
+            "quote_block": {
+              "type": "SharedSlice"
+            },
+            "hero_slice": {
+              "type": "SharedSlice"
+            },
+            "embed_block": {
+              "type": "SharedSlice"
+            },
+            "chapter_title": {
+              "type": "SharedSlice"
+            },
+            "project_link": {
+              "type": "SharedSlice"
+            },
+            "image_text_image": {
+              "type": "SharedSlice"
+            },
+            "compo3_images": {
+              "type": "SharedSlice"
+            },
+            "space_block": {
+              "type": "SharedSlice"
+            },
+            "button_cta": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "My title for Search Engine"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "The description that will appear in search engine"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Meta Image"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

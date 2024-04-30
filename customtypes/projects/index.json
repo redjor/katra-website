@@ -1,0 +1,98 @@
+{
+  "id": "projects",
+  "label": "Page Projets",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Title"
+        }
+      },
+      "top_post": {
+        "type": "Link",
+        "config": {
+          "select": "document",
+          "customtypes": ["project"],
+          "label": "Top post"
+        }
+      },
+      "featured_projects": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "project": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["project"],
+                "label": "Projet"
+              }
+            }
+          },
+          "label": "Selecta"
+        }
+      },
+      "katra_selection": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "selection": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["series"],
+                "label": "Selection"
+              }
+            }
+          },
+          "label": "Top Series"
+        }
+      },
+      "top_videos": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "video": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["videos"],
+                "label": "Video"
+              }
+            }
+          },
+          "label": "Top Videos"
+        }
+      }
+    },
+    "SEO Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "My title for Search Engine"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "The description that will appear in search engine"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Meta Image"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

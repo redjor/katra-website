@@ -1,0 +1,40 @@
+{
+  "id": "social_menu",
+  "label": "Réseaux sociaux",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Nom du réseau"
+        }
+      },
+      "menu_items": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "label": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                "label": "Label"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "select": null
+              }
+            }
+          },
+          "label": "menu_items"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

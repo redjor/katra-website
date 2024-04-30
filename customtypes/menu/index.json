@@ -1,0 +1,47 @@
+{
+  "id": "menu",
+  "label": "Menu",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Title"
+        }
+      },
+      "menu_links": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "label": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph",
+                "label": "Label"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "allowTargetBlank": true,
+                "label": "Link",
+                "select": null
+              }
+            },
+            "slug": {
+              "type": "Text",
+              "config": {
+                "label": "Slug"
+              }
+            }
+          },
+          "label": "Menu Links"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

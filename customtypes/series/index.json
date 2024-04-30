@@ -1,0 +1,181 @@
+{
+  "id": "series",
+  "label": "Serie",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Titre"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "Description"
+        }
+      },
+      "cover_video": {
+        "type": "Embed",
+        "config": {
+          "label": "Video de couverture",
+          "placeholder": "Ajouter l'url de la video VIMEO"
+        }
+      },
+      "bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Couleur du thème"
+        }
+      },
+      "thumbnail": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Thumbnail"
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Logo"
+        }
+      },
+      "cover": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Image de couverture"
+        }
+      },
+      "projects": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "project": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["project"],
+                "label": "Projet",
+                "placeholder": "Ajout d'un projet"
+              }
+            }
+          },
+          "label": "Projets"
+        }
+      },
+      "videos": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "video": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["videos"],
+                "label": "video"
+              }
+            }
+          },
+          "label": "Vidéos"
+        }
+      }
+    },
+    "Content": {
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {
+            "hero_slice": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "image_grid": {
+              "type": "SharedSlice"
+            },
+            "image_carousel": {
+              "type": "SharedSlice"
+            },
+            "rich_text": {
+              "type": "SharedSlice"
+            },
+            "quote_block": {
+              "type": "SharedSlice"
+            },
+            "embed_block": {
+              "type": "SharedSlice"
+            },
+            "project_link": {
+              "type": "SharedSlice"
+            },
+            "image_text_image": {
+              "type": "SharedSlice"
+            },
+            "compo3_images": {
+              "type": "SharedSlice"
+            },
+            "space_block": {
+              "type": "SharedSlice"
+            },
+            "title_block": {
+              "type": "SharedSlice"
+            },
+            "text_block": {
+              "type": "SharedSlice"
+            },
+            "marquee": {
+              "type": "SharedSlice"
+            },
+            "chapter_title": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "Le titre pour les moteurs de recherche"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "La description pour les moteurs de recherche"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Meta Image"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

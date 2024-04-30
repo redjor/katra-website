@@ -1,0 +1,31 @@
+{
+  "id": "redirections",
+  "label": "Redirections",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "redirection": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "from": {
+              "type": "Text",
+              "config": {
+                "label": "from"
+              }
+            },
+            "to": {
+              "type": "Text",
+              "config": {
+                "label": "to"
+              }
+            }
+          },
+          "label": "redirection"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

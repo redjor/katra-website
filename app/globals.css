@@ -34,6 +34,8 @@ body.menu-modal-open {
     overscroll-behavior: contain;
 }
 
+/* HOMEPAGE */
+
 .scroll-down-helper {
     @apply block bg-darker-aluminium rounded overflow-hidden relative;
     width: 6px;
@@ -65,5 +67,110 @@ body.menu-modal-open {
     }
     100% {
         transform: translateY(200%);
+    }
+}
+
+/* PROJECTS */
+
+.featured-projects-carousel.swiper-horizontal
+.swiper-pagination-bullets {
+    @apply absolute bottom-8 left-auto w-auto z-10 right-16;
+
+}
+
+.featured-projects-carousel.swiper-horizontal
+.swiper-pagination-bullets
+.swiper-pagination-bullet {
+    @apply bg-white w-2 transition-all duration-300 opacity-50 rounded-3xl cursor-pointer;
+}
+
+.featured-projects-carousel.swiper-horizontal
+.swiper-pagination-bullets
+.swiper-pagination-bullet-active {
+    @apply bg-white w-6 opacity-100;
+}
+
+
+@media screen and (max-width: 768px) {
+    .featured-projects-carousel.swiper-horizontal
+    .swiper-pagination-bullets {
+        @apply right-4 bottom-4;
+    }
+}
+
+.featuredProjectOverlay {
+    @apply absolute inset-0;
+    background-image: radial-gradient(
+            farthest-side at 73% 21%,
+            transparent,
+            rgb(0, 0, 0)
+    );
+}
+
+button.cta,
+.cta {
+    @apply cursor-pointer inline-block p-3 font-extrabold tracking-wide uppercase bg-white dark:bg-black border border-aluminium dark:border-dark-aluminium transition-all duration-300 ease-in-out;
+}
+
+button.cta:hover,
+.cta:hover {
+    @apply border-white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.discover-btn {
+    background: transparent;
+    outline: none;
+    position: relative;
+    border: 2px solid white;
+    padding: 16px 32px;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+button.discover-btn:before {
+    content: attr(data-hover);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 0.5s ease-in-out;
+}
+
+button.discover-btn div {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    transition: all 0.5s ease-in-out;
+}
+
+.infinite-rotate {
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.selecta-badge {
+    @apply absolute z-10 bottom-16 md:bottom-24;
+}
+
+@media screen and (max-width: 768px) {
+    .featured-projects-carousel.swiper-container-horizontal
+    .swiper-pagination-bullets {
+        @apply right-4 bottom-4;
     }
 }

@@ -3,224 +3,253 @@
 @tailwind utilities;
 
 @layer utilities {
-  @font-face {
-    font-family: 'VisualBraille';
-    font-style: normal;
-    font-weight: 400;
-    src: local('VisualBraille'),
-      url('https://fonts.cdnfonts.com/s/6999/visualbraille.woff') format('woff');
-    font-display: swap;
-  }
-
-  /* Typography */
-  .h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight;
-  }
-  .h2 {
-    @apply text-2xl md:text-5xl font-semibold leading-snug uppercase;
-  }
-  .h3 {
-    @apply text-xl md:text-2xl font-bold;
-  }
-  .h4 {
-    @apply text-lg md:text-xl font-light;
-  }
-  .leadingText {
-    @apply col-start-1 md:col-start-4 col-span-12 md:col-span-6 font-medium text-lg md:text-2xl text-aluminium text-center;
-  }
-
-  .lead,
-  .lead > p {
-    @apply text-xl leading-normal font-bold;
-  }
-  p {
-    @apply text-lg leading-normal text-aluminium;
-  }
-  .blockquote {
-    @apply text-2xl italic;
-  }
-  .figcaption,
-  .figcaption > p {
-    @apply text-xs;
-  }
-  b,
-  strong {
-    font-weight: bold;
-  }
-  ul {
-    @apply flex flex-col space-y-4 pl-4;
-  }
-  li {
-    list-style-image: url('@/assets/img/list-arrow.svg');
-    padding-left: 8px;
-  }
-  ol {
-    @apply flex flex-col space-y-4 pl-4;
-    list-style-type: decimal;
-  }
-  .input {
-    @apply block w-full px-4 py-2 leading-normal bg-white border border-gray-300 appearance-none focus:outline-none focus:ring;
-  }
-  .textarea {
-    @apply block w-full px-4 py-2 leading-normal bg-white border border-gray-300 appearance-none focus:outline-none focus:ring;
-  }
-  img.aspect-ratio {
-    @apply absolute inset-0 w-full h-full object-cover;
-  }
-  button.cta,
-  .cta {
-    @apply inline-block p-3 font-extrabold tracking-wide uppercase bg-white dark:bg-black border border-aluminium dark:border-dark-aluminium transition-all duration-300 ease-in-out;
-  }
-
-  button.cta:hover,
-  .cta:hover {
-    @apply border-white;
-  }
-
-  button:hover {
-    cursor: pointer;
-  }
-  button.discover-btn {
-    background: transparent;
-    outline: none;
-    position: relative;
-    border: 2px solid white;
-    padding: 16px 32px;
-    overflow: hidden;
-    pointer-events: auto;
-  }
-  button.discover-btn:before {
-    content: attr(data-hover);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    opacity: 0;
-    transform: translate(-100%, 0);
-    transition: all 0.5s ease-in-out;
-  }
-  button.discover-btn div {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    transition: all 0.5s ease-in-out;
-  }
-
-  @media (hover: hover) {
-    button.discover-btn:hover:before {
-      opacity: 1;
-      transform: translate(0, 0);
+    @font-face {
+        font-family: 'VisualBraille';
+        font-style: normal;
+        font-weight: 400;
+        src: local('VisualBraille'),
+        url('https://fonts.cdnfonts.com/s/6999/visualbraille.woff') format('woff');
+        font-display: swap;
     }
-    button.discover-btn:hover div {
-      opacity: 0;
-      transform: translate(100%, 0);
+
+    /* Typography */
+    .h1 {
+        @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight;
     }
-  }
-  a {
-    font-weight: bold;
-  }
 
-  .infinite-rotate {
-    animation: spin 10s linear infinite;
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
+    .h2 {
+        @apply text-2xl md:text-5xl font-semibold leading-snug uppercase;
     }
-    to {
-      transform: rotate(360deg);
+
+    .h3 {
+        @apply text-xl md:text-2xl font-bold;
     }
-  }
 
-  .font-braille {
-    font-family: 'VisualBraille', sans-serif;
-  }
-  .text-border-outline {
-    color: transparent;
-    -webkit-text-stroke: 1px #dfdfdf;
-    -webkit-text-fill-color: transparent;
-  }
+    .h4 {
+        @apply text-lg md:text-xl font-light;
+    }
 
-  /* Animations on appearance */
-  .appear-fade-opacity {
-    opacity: 0;
-    transition: all 1s;
-  }
-  .appear-fade-opacity.in-viewport {
-    opacity: 1;
-  }
+    .leadingText {
+        @apply col-start-1 md:col-start-4 col-span-12 md:col-span-6 font-medium text-lg md:text-2xl text-aluminium text-center;
+    }
 
-  .appear-image-scale {
-    transform: scale(1.5);
-    transition: all 1s;
-  }
-  .appear-image-scale.in-viewport {
-    transform: scale(1);
-  }
+    .lead,
+    .lead > p {
+        @apply text-xl leading-normal font-bold;
+    }
 
-  .appear-translate-left-to-right {
-    transform: translateX(-10%);
-    transition: all 1s;
-  }
-  .appear-translate-left-to-right.in-viewport {
-    transform: translateX(0%);
-    transition: all 1s;
-  }
+    p {
+        @apply text-lg leading-normal text-aluminium;
+    }
 
-  .appear-translate-right-to-left {
-    transform: translateX(10%);
-    transition: all 1s;
-  }
-  .appear-translate-right-to-left.in-viewport {
-    transform: translateX(0%);
-    transition: all 1s;
-  }
+    .blockquote {
+        @apply text-2xl italic;
+    }
 
-  .appear-translate-bottom-to-top {
-    transform: translateY(10%);
-    transition: all 1s;
-  }
-  .appear-translate-bottom-to-top.in-viewport {
-    transform: translateY(0%);
-    transition: all 1s;
-  }
-  .appear-translate-top-to-bottom {
-    transform: translateY(-10%);
-    transition: all 1s;
-  }
-  .appear-translate-top-to-bottom.in-viewport {
-    transform: translateY(0%);
-    transition: all 1s;
-  }
+    .figcaption,
+    .figcaption > p {
+        @apply text-xs;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    ul {
+        @apply flex flex-col space-y-4 pl-4;
+    }
+
+    li {
+        list-style-image: url('/assets/img/list-arrow.svg');
+        padding-left: 8px;
+    }
+
+    ol {
+        @apply flex flex-col space-y-4 pl-4;
+        list-style-type: decimal;
+    }
+
+    .input {
+        @apply block w-full px-4 py-2 leading-normal bg-white border border-gray-300 appearance-none focus:outline-none focus:ring;
+    }
+
+    .textarea {
+        @apply block w-full px-4 py-2 leading-normal bg-white border border-gray-300 appearance-none focus:outline-none focus:ring;
+    }
+
+    img.aspect-ratio {
+        @apply absolute inset-0 w-full h-full object-cover;
+    }
+
+    button.cta,
+    .cta {
+        @apply inline-block p-3 font-extrabold tracking-wide uppercase bg-white dark:bg-black border border-aluminium dark:border-dark-aluminium transition-all duration-300 ease-in-out;
+    }
+
+    button.cta:hover,
+    .cta:hover {
+        @apply border-white;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    button.discover-btn {
+        background: transparent;
+        outline: none;
+        position: relative;
+        border: 2px solid white;
+        padding: 16px 32px;
+        overflow: hidden;
+        pointer-events: auto;
+    }
+
+    button.discover-btn:before {
+        content: attr(data-hover);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 800;
+        opacity: 0;
+        transform: translate(-100%, 0);
+        transition: all 0.5s ease-in-out;
+    }
+
+    button.discover-btn div {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 800;
+        transition: all 0.5s ease-in-out;
+    }
+
+    @media (hover: hover) {
+        button.discover-btn:hover:before {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        button.discover-btn:hover div {
+            opacity: 0;
+            transform: translate(100%, 0);
+        }
+    }
+    a {
+        font-weight: bold;
+    }
+
+    .infinite-rotate {
+        animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .font-braille {
+        font-family: 'VisualBraille', sans-serif;
+    }
+
+    .text-border-outline {
+        color: transparent;
+        -webkit-text-stroke: 1px #dfdfdf;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Animations on appearance */
+    .appear-fade-opacity {
+        opacity: 0;
+        transition: all 1s;
+    }
+
+    .appear-fade-opacity.in-viewport {
+        opacity: 1;
+    }
+
+    .appear-image-scale {
+        transform: scale(1.5);
+        transition: all 1s;
+    }
+
+    .appear-image-scale.in-viewport {
+        transform: scale(1);
+    }
+
+    .appear-translate-left-to-right {
+        transform: translateX(-10%);
+        transition: all 1s;
+    }
+
+    .appear-translate-left-to-right.in-viewport {
+        transform: translateX(0%);
+        transition: all 1s;
+    }
+
+    .appear-translate-right-to-left {
+        transform: translateX(10%);
+        transition: all 1s;
+    }
+
+    .appear-translate-right-to-left.in-viewport {
+        transform: translateX(0%);
+        transition: all 1s;
+    }
+
+    .appear-translate-bottom-to-top {
+        transform: translateY(10%);
+        transition: all 1s;
+    }
+
+    .appear-translate-bottom-to-top.in-viewport {
+        transform: translateY(0%);
+        transition: all 1s;
+    }
+
+    .appear-translate-top-to-bottom {
+        transform: translateY(-10%);
+        transition: all 1s;
+    }
+
+    .appear-translate-top-to-bottom.in-viewport {
+        transform: translateY(0%);
+        transition: all 1s;
+    }
 }
+
 .column-2 {
-  column-count: 1;
+    column-count: 1;
 }
+
 @media (min-width: 768px) {
-  .column-2 {
-    column-count: 2;
-  }
+    .column-2 {
+        column-count: 2;
+    }
 }
 
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  z-index: 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    z-index: 0;
 }
 
 .video-container iframe,
 .video-container object,
 .video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }

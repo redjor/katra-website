@@ -18,6 +18,7 @@ function truncateText(text: string, maxLength: number) {
 }
 
 export default function ProjectsFeaturedCarousel({projects}: { projects: Array<any> }) {
+
     return (
         <div
             className="relative block max-h-screen w-full overflow-hidden"
@@ -39,7 +40,7 @@ export default function ProjectsFeaturedCarousel({projects}: { projects: Array<a
                 modules={[Autoplay, Pagination, Navigation]}
                 className="featured-projects-carousel relative top-auto w-full"
             >
-                {projects.map(project => (
+                {projects && projects.map(project => (
                     <SwiperSlide key={project.project.uid}>
                         <article
                             className="relative flex max-h-[80vh] min-h-[75vh] w-full overflow-hidden"

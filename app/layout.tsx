@@ -22,7 +22,7 @@ export default function RootLayout({
         <body className={inter.className}>
         <div className="relative w-full overflow-hidden">
             <Header/>
-            {children}
+            <main className="relative z-0">{children}</main>
             <Footer/>
             <MainMenuModal/>
         </div>

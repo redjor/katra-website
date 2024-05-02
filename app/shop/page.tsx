@@ -4,6 +4,7 @@ import Row from "@/app/components/layout/Row";
 import PageHeader from "@/app/components/layout/PageHeader";
 import {createClient} from "@/prismicio";
 import ProductCard from "@/app/components/product/ProductCard";
+import {asText} from "@prismicio/client";
 
 export default async function Shop() {
     const client = createClient();
@@ -15,7 +16,7 @@ export default async function Shop() {
     return (
         <Container className="pt-32">
             <Breadcrumbs icon="shop-icon-white"/>
-            <PageHeader title={data.title[0].text} description={data.description}/>
+            <PageHeader title={asText(data.title)} description={data.description || ""}/>
             <Row>
                 <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">{
                     productsResponse.map(product => (

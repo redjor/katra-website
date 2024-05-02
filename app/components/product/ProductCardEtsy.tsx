@@ -1,8 +1,8 @@
 import ProductCardContainer from "@/app/components/product/ProductCardContainer";
 import {ProductDocumentData} from "@/prismicio-types";
+import Image from "next/image";
 
 export default function ProductCardEtsy({product}: { product: ProductDocumentData }) {
-    console.log('product', product);
     const ProductEtsyData = () => {
         const etsyProductTitle = () => {
             // @ts-ignore
@@ -24,6 +24,7 @@ export default function ProductCardEtsy({product}: { product: ProductDocumentDat
                         className="h-4"
                         width="32"
                         height="16"
+                        alt="Logo Etsy"
                     />
                 </div>
             </>
@@ -32,12 +33,12 @@ export default function ProductCardEtsy({product}: { product: ProductDocumentDat
 
     const ProductImage = () => {
         return (
-            <img src={product.etsy_url?.thumbnail_url} alt={product.etsy_url?.title}
-                 className="product-card-cover_img"/>)
+            <Image src={product.etsy_url?.thumbnail_url || '/'} alt={product.etsy_url?.title || ''}
+                   className="product-card-cover_img" fill={true}/>)
     }
 
     return (
-        <a href={product.etsy_url?.url || ''} className="product-card" target="_blank">
+        <a href={`${product.etsy_url?.url || ''}`} className="product-card" target="_blank">
             <ProductCardContainer productData={<ProductEtsyData/>} productImage={<ProductImage/>}/>
         </a>
     )

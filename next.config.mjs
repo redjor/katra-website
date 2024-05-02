@@ -14,6 +14,9 @@ const nextConfig = {
             },
             {
                 hostname: 'i.ytimg.com'
+            },
+            {
+                hostname: 'i.etsystatic.com'
             }
         ]
     }

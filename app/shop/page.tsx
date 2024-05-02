@@ -20,7 +20,7 @@ export default async function Shop() {
             <Row>
                 <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">{
                     productsResponse.map(product => (
-                        <ProductCard product={product}/>
+                        <ProductCard product={product} key={product.id}/>
                     ))
                 }
                 </div>

@@ -9,7 +9,7 @@ export default async function Contact() {
 
     return (
         <Container className="pt-32">
-            <Breadcrumbs icon="contact-icon-white" url=""/>
+            <Breadcrumbs icon="contact-icon-white"/>
             <Row containerWidth="max-w-7xl">
                 <div className="py-24 md:py-48">
                     <h1

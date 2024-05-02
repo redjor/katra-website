@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from '@/app/components/shared/Header';
 import Footer from "@/app/components/shared/Footer";
 import MainMenuModal from "@/app/components/menus/MainMenuModal";
+import React from "react";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -20,9 +21,9 @@ export default function RootLayout({
     return (
         <html lang="fr">
         <body className={inter.className}>
-        <div className="relative w-full overflow-hidden">
+        <div className="w-full overflow-hidden">
             <Header/>
-            <main className="relative z-0">{children}</main>
+            <main>{children}</main>
             <Footer/>
             <MainMenuModal/>
         </div>

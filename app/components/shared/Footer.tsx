@@ -3,7 +3,7 @@ import MainMenu from "@/app/components/shared/MainMenu";
 export default function Footer() {
     return (
         <footer
-            className="relative flex h-screen w-full flex-col gap-4 bg-black py-4 md:gap-0 md:py-12"
+            className="relative mt-24 flex h-screen w-full flex-col gap-4 bg-black py-4 md:gap-0 md:py-12"
         >
             <div className="z-0 flex w-full grow justify-center">
                 <MainMenu/>

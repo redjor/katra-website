@@ -10,6 +10,7 @@ type Props = {
 
 export default function ProjectsCategoriesList({categories}: Props) {
     return (
+        
         <SectionCarousel title="Catégories">
             {categories.map((category: ProjectCategoryDocument) => (
                 <SwiperSlide key={category.uid}>

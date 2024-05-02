@@ -8,6 +8,12 @@ const nextConfig = {
             },
             {
                 hostname: 'studiokatra.cdn.prismic.io'
+            },
+            {
+                hostname: 'i.vimeocdn.com'
+            },
+            {
+                hostname: 'i.ytimg.com'
             }
         ]
     }

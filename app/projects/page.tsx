@@ -5,6 +5,7 @@ import {Metadata} from "next";
 import LatestProjectsCarousel from "@/app/components/projects/LatestProjectsCarousel";
 import LatestVideos from "@/app/components/projects/LatestVideos";
 
+
 function filterProjectsByCategory(categoryId: any, projects: any) {
     return projects.filter((project: any) => {
         return project.data.categories[0].category.id === categoryId;

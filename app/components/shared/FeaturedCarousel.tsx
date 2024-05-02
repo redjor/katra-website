@@ -6,7 +6,7 @@ import {Swiper} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import {ReactNode} from "react";
+import {ReactNode, useEffect, useRef} from "react";
 
 type FeaturedCarouselProps = {
     slidesPerView?: number;
@@ -14,6 +14,43 @@ type FeaturedCarouselProps = {
 }
 
 export default function FeaturedCarousel({slidesPerView, children}: FeaturedCarouselProps) {
+    const selectionsCarouselRef = useRef(null);
+
+    useEffect(() => {
+        const handleSlideHover = () => {
+            if (!selectionsCarouselRef.current) {
+                return;
+            }
+
+            const slides = Array.from(
+                //@ts-ignore
+                selectionsCarouselRef.current?.querySelectorAll(
+                    '.swiper-slide.swiper-slide-visible .hover-card'
+                )
+            );
+
+            if (slides.length === 0) {
+                return;
+            }
+
+            const firstElement = slides[0];
+            const lastElement =
+                firstElement !== slides[slides.length - 1]
+                    ? slides[slides.length - 1]
+                    : undefined;
+            //@ts-ignore
+            firstElement.style.transformOrigin = 'left center';
+            //@ts-ignore
+            if (lastElement) lastElement.style.transformOrigin = 'right center';
+        };
+
+        handleSlideHover();
+        
+        return () => {
+            // Any cleanup code here
+        };
+    }, []);
+
     const breakpoints = {
         1536: {
             slidesPerView: 5,
@@ -47,49 +84,51 @@ export default function FeaturedCarousel({slidesPerView, children}: FeaturedCaro
         },
     }
     return (
-        <Swiper
-            className="featured-carousel relative overflow-hidden"
-            modules={[Navigation]}
-            spaceBetween={16}
-            slidesPerView={slidesPerView || 6}
-            pagination={{clickable: true}}
-            scrollbar={{draggable: true}}
-            freeMode={{
-                enabled: true,
-                sticky: true
-            }}
-            navigation={{
-                nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev',
-            }}
-            speed={800}
-            watchSlidesProgress={true}
-            breakpoints={breakpoints}
-        >
-            <button className="swiper-button swiper-button-prev">
-                <div
-                    className="duration-400 absolute right-0 top-1/2 hidden w-16 -translate-y-1/2 cursor-pointer items-center justify-center bg-opacity-50 transition-all hover:scale-105 sm:block md:flex"
-                >
-                    <img
-                        src="/assets/img/left-arrow.svg"
-                        alt="left-arrow"
-                        width="16px"
-                        height="16px"
-                    />
-                </div>
-            </button>
-            {children}
-            <button className="swiper-button swiper-button-next">
-                <div
-                    className="duration-400 absolute left-0 top-1/2 hidden w-16 -translate-y-1/2 cursor-pointer items-center justify-center bg-opacity-50 transition-all hover:scale-105 sm:block md:flex"
-                >
-                    <img
-                        src="/assets/img/right-arrow.svg"
-                        alt="right-arrow"
-                        width="16px"
-                        height="16px"
-                    />
-                </div>
-            </button>
-        </Swiper>
+        <div ref={selectionsCarouselRef}>
+            <Swiper
+                className="featured-carousel relative overflow-hidden"
+                modules={[Navigation]}
+                spaceBetween={16}
+                slidesPerView={slidesPerView || 6}
+                pagination={{clickable: true}}
+                scrollbar={{draggable: true}}
+                freeMode={{
+                    enabled: true,
+                    sticky: true
+                }}
+                navigation={{
+                    nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev',
+                }}
+                speed={800}
+                watchSlidesProgress={true}
+                breakpoints={breakpoints}
+            >
+                <button className="swiper-button swiper-button-prev">
+                    <div
+                        className="duration-400 absolute right-0 top-1/2 hidden w-16 -translate-y-1/2 cursor-pointer items-center justify-center bg-opacity-50 transition-all hover:scale-105 sm:block md:flex"
+                    >
+                        <img
+                            src="/assets/img/left-arrow.svg"
+                            alt="left-arrow"
+                            width="16px"
+                            height="16px"
+                        />
+                    </div>
+                </button>
+                {children}
+                <button className="swiper-button swiper-button-next">
+                    <div
+                        className="duration-400 absolute left-0 top-1/2 hidden w-16 -translate-y-1/2 cursor-pointer items-center justify-center bg-opacity-50 transition-all hover:scale-105 sm:block md:flex"
+                    >
+                        <img
+                            src="/assets/img/right-arrow.svg"
+                            alt="right-arrow"
+                            width="16px"
+                            height="16px"
+                        />
+                    </div>
+                </button>
+            </Swiper>
+        </div>
     )
 }

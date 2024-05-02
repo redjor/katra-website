@@ -19,7 +19,8 @@ const nextConfig = {
                 hostname: 'i.etsystatic.com'
             }
         ]
-    }
+    },
+    trailingSlash: true,
 };
 
 export default nextConfig;

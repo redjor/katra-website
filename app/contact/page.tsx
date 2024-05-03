@@ -2,6 +2,7 @@ import {createClient} from '@/prismicio';
 import Container from "@/app/components/layout/Container";
 import Row from "@/app/components/layout/Row";
 import Breadcrumbs from "@/app/components/shared/Breadcrumbs";
+import {Metadata} from "next";
 
 export default async function Contact() {
     const client = createClient();
@@ -165,4 +166,31 @@ export default async function Contact() {
             </Row>
         </Container>
     )
+}
+
+export async function generateMetadata({
+                                           params: {locale},
+                                       }: {
+    params: { locale: string };
+}): Promise<Metadata> {
+    const client = createClient();
+    const contactPage = await client.getSingle("contact_page", {lang: locale});
+    return {
+        title: contactPage.data.meta_title,
+        description: contactPage.data.meta_description,
+        openGraph: {
+            title: contactPage.data.meta_title || "",
+            description: contactPage.data.meta_description || "",
+            type: "website",
+            locale: locale,
+            images: [
+                {
+                    url: contactPage.data.meta_image.url || "",
+                    width: contactPage?.data?.meta_image?.dimensions?.width || 0,
+                    height: contactPage?.data?.meta_image?.dimensions?.height || 0,
+                    alt: contactPage.data.meta_image.alt || "Og Image Alt",
+                },
+            ],
+        }
+    };
 }

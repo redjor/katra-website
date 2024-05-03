@@ -15,7 +15,8 @@ export default function LatestProjectsCarousel({projects}: { projects: Array<any
                     <SectionCarousel title={item.category?.data?.title || ''}>
                         {item.projects.map((project: any) => (
                             <SwiperSlide key={project.uid}>
-                                <Link href={`/projets/${project.uid}`} className="project-card block">
+                                <Link href={`/projects/${project?.data?.categories[0]?.category?.slug}/${project.uid}`}
+                                      className="project-card block">
                                     <div className="project-card-carousel aspect-video">
                                         <Image src={project.data.cover.url} alt={project.data.title}
                                                fill={true}

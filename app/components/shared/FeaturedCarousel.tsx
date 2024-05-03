@@ -45,7 +45,7 @@ export default function FeaturedCarousel({slidesPerView, children}: FeaturedCaro
         };
 
         handleSlideHover();
-        
+
         return () => {
             // Any cleanup code here
         };
@@ -100,6 +100,9 @@ export default function FeaturedCarousel({slidesPerView, children}: FeaturedCaro
                     nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev',
                 }}
                 speed={800}
+                mousewheel={{
+                    forceToAxis: true,
+                }}
                 watchSlidesProgress={true}
                 breakpoints={breakpoints}
             >

@@ -5,6 +5,7 @@ import PageHeader from "@/app/components/layout/PageHeader";
 import {createClient} from "@/prismicio";
 import ProductCard from "@/app/components/product/ProductCard";
 import {asText} from "@prismicio/client";
+import {Metadata} from "next";
 
 export default async function Shop() {
     const client = createClient();
@@ -27,4 +28,31 @@ export default async function Shop() {
             </Row>
         </Container>
     )
+}
+
+export async function generateMetadata({
+                                           params: {locale},
+                                       }: {
+    params: { locale: string };
+}): Promise<Metadata> {
+    const client = createClient();
+    const shop = await client.getSingle("shop", {lang: locale});
+    return {
+        title: shop.data.meta_title,
+        description: shop.data.meta_description,
+        openGraph: {
+            title: shop.data.meta_title || "",
+            description: shop.data.meta_description || "",
+            type: "website",
+            locale: locale,
+            images: [
+                {
+                    url: shop.data.meta_image.url || "",
+                    width: shop?.data?.meta_image?.dimensions?.width || 0,
+                    height: shop?.data?.meta_image?.dimensions?.height || 0,
+                    alt: shop.data.meta_image.alt || "Og Image Alt",
+                },
+            ],
+        }
+    };
 }

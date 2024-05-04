@@ -10,24 +10,24 @@ import ProjectPublicationDate from "@/app/components/project/ProjectPublicationD
 import ProjectCategories from "@/app/components/project/ProjectCategories";
 import ProjectPhotographers from "@/app/components/project/ProjectPhotographers";
 import ProjectPartners from "@/app/components/project/ProjectPartners";
+import ProjectNextProject from "@/app/components/project/ProjectNextProject";
 
 export default async function ProjectPage({
   params,
 }: {
   params: { uid: string };
 }) {
-  const projectId = params.uid;
+  const projectUid = params.uid;
 
   const client = createClient();
-  const ProjectResponse = await client.getByUID("project", projectId, {
+  const ProjectResponse = await client.getByUID("project", projectUid, {
     lang: "fr-fr",
     fetchLinks: ["project_category.title"],
   });
 
   const { data: ProjectData } = ProjectResponse;
-
   return (
-    <div className={projectId}>
+    <div className={projectUid}>
       <div style={{ background: ProjectData.bg_color || "black" }}>
         <ProjectHeader
           cover={
@@ -70,6 +70,17 @@ export default async function ProjectPage({
           </Row>
         </Container>
       </div>
+      <main></main>
+      <Container>
+        <Row>
+          {projectUid && ProjectData && (
+            <ProjectNextProject
+              projectUid={projectUid}
+              projectData={ProjectData}
+            />
+          )}
+        </Row>
+      </Container>
     </div>
   );
 }

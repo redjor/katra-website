@@ -20,11 +20,11 @@ export default function ProjectPartners({
             Partenaires
           </span>
           <div className="flex gap-4">
-            {partners.map((partner: any) => (
+            {partners.map((partner: any, index: number) => (
               <span
                 style={{ color: text_color || "#fff" }}
                 className="font-bold"
-                key={partner.id}
+                key={index}
               >
                 {asText(partner.name)}
               </span>

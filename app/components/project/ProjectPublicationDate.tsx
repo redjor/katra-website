@@ -8,7 +8,6 @@ export default function ProjectPublicationDate({
   const publicationDate = () => {
     //@ts-ignore
     const newDate = new Date(date);
-    console.log(newDate);
     return date
       ? newDate.toLocaleDateString(undefined, {
           year: "numeric",
